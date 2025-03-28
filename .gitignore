@@ -1,0 +1,43 @@
+# 忽略大型模型文件
+models/*/pytorch_model.bin
+models/*/tf_model.h5
+models/*/model.ckpt.*
+models/*/tokenizer.json
+output/final_model.pt
+output/model.onnx
+
+# 忽略数据集文件
+data/*.csv
+data/*.txt
+data/*.json
+data/*.npy
+data/*.npz
+
+# 忽略系统文件
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 忽略IDE文件
+.idea/
+.vscode/
+*.swp
+*.swo
