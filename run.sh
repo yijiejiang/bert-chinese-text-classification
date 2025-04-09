@@ -19,3 +19,6 @@ python predict.py \
 # --model_path output/model.onnx \
 # --tokenizer_path output \
 # --text "杂交水稻宣布亩产突破 2000KG"
+
+# 使用TensorRT模型
+# 此处功能待开发
