@@ -63,6 +63,50 @@ pip install -r requirements.txt
 
 ## 使用方法
 
+### 预测流程
+
+```mermaid
+flowchart TD
+    A[输入文本] --> B[文本预处理]
+    B --> C{模型类型}
+    C -->|PyTorch| D[加载PyTorch模型]
+    C -->|ONNX| E[加载ONNX模型]
+    D --> F[PyTorch模型推理]
+    E --> G[ONNX模型推理]
+    F --> H[计算类别概率]
+    G --> H
+    H --> I[获取预测类别]
+    I --> J[输出预测结果]
+    
+    subgraph 预处理阶段
+    A --> B
+    end
+    
+    subgraph 模型加载
+    B --> C
+    C --> D
+    C --> E
+    end
+    
+    subgraph 推理阶段
+    D --> F
+    E --> G
+    F --> H
+    G --> H
+    end
+    
+    subgraph 后处理
+    H --> I
+    I --> J
+    end
+```
+
+详细流程说明:
+1. **预处理阶段**: 对输入文本进行分词、编码和填充
+2. **模型加载**: 根据用户选择加载PyTorch或ONNX模型
+3. **推理阶段**: 将编码后的文本输入模型进行推理
+4. **后处理**: 计算类别概率并确定最终预测类别
+
 ### 1. 数据准备
 
 项目使用头条文本分类数据集，包含15个类别。请提前自行下载数据，数据处理脚本会自动下载并处理数据：
